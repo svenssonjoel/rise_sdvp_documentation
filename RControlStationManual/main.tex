@@ -390,7 +390,13 @@ below.
 
 %% ------------------------------------------------------------
 \noindent\begin{minipage}{0.5\textwidth} %% Text Car IMU
-  The IMU tab displays realtime sensor data from the Inertial Measurements Unit. 
+
+The IMU tab displays realtime sensor data from the Inertial
+Measurements Unit. The top graph shows accelerometer readings,
+measured in G:s, in the middle gyroscope readings in degrees per
+second are displayed and at the bottom the magnetometer data in micro
+Teslas.
+
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
       \noindent \includegraphics[width=\textwidth]{./screens/Car_IMU_realtime.png}
@@ -403,8 +409,11 @@ below.
   \noindent \includegraphics[width=\textwidth]{./screens/Car_terminal.png}
 \end{minipage}
 \begin{minipage}{0.5\textwidth} %% Text Car terminal interface
-  \todo{text}
+  This tab provides a terminal interface to the car. The ``help'' commands provides a list
+  of valid commands. Section~\ref{sec:terminalcommands} shows a list of commands that
+  are valid at 2018-09-03. 
 \end{minipage}
+
 
 %% ------------------------------------------------------------
 
@@ -684,8 +693,72 @@ bool rcsc_sendTerminalCmd(int car, char *cmd, char *reply, int timeoutMs);
 \subsection{Correction data}
 
 
+\section{Car Terminal Commands} \label{sec:terminalcommands}
+The valid commands to use in the terminal are: 
+\begin{itemize} 
+\item {\bf help} Shows list of valid commands. 
+\item {\bf ping} Print pong here to see if the reply works
+\item {\bf mem}  Show memory usage
+\item {\bf threads} List all threads
+\item {\bf vesc} Forward command to VESC
+\item {\bf reset\_att} Re-initialize the attitude estimation
+\item {\bf reset\_enu} Re-initialize the ENU reference on the next GNSS sample
+\item {\bf cc1120\_state} Print the state of the CC1120
+\item {\bf cc1120\_update\_rf [rf\_setting]}\\
+  Set one of the cc1120 RF settings\\
+  0: CC1120\_SET\_434\_0M\_1\_2K\_2FSK\_BW25K\_4K\\
+  1: CC1120\_SET\_434\_0M\_1\_2K\_2FSK\_BW50K\_20K\\
+  2: CC1120\_SET\_434\_0M\_1\_2K\_2FSK\_BW10K\_4K\\
+  3: CC1120\_SET\_434\_0M\_50K\_2GFSK\_BW100K\_25K\\
+  4: CC1120\_SET\_434\_0M\_100K\_4FSK\_BW100K\_25K\\
+  5: CC1120\_SET\_434\_0M\_4\_8K\_2FSK\_BW40K\_9K\\
+  6: CC1120\_SET\_434\_0M\_4\_8K\_2FSK\_BW50K\_14K\\
+  7: CC1120\_SET\_434\_0M\_4\_8K\_2FSK\_BW100K\_39K\\
+  8: CC1120\_SET\_434\_0M\_9\_6K\_2FSK\_BW50K\_12K\\
+  9: CC1120\_SET\_452\_0M\_9\_6K\_2GFSK\_BW33K\_2\_4K\\
+  10: CC1120\_SET\_452\_0M\_9\_6K\_2GFSK\_BW50K\_2\_4K
+\item {\bf dw\_range [dest]} Measure the distance to DW module [dest]
+  with ultra wideband.
+\item {\bf zero\_gyro} Zero the gyro bias. Note: The PCB must be
+  completely still when running this command.
+\item {\bf pos\_delay\_info [print\_en]} Print and plot delay
+  information when doing GNSS position correction. \\
+  0 - Disabled \\
+  1 - Enabled
+\item {\bf pos\_gnss\_corr\_info [print\_en]} Print and plot
+  correction information when doing GNSS position correction. \\
+   0 - Disabled \\
+   1 - Enabled
+\item {\bf pos\_delay\_comp [enabled]} Enable or disable delay
+  compensation. \\
+   0 - Disabled \\
+   1 - Enabled
+\item {\bf pos\_print\_sat\_info} Print all satellite information.
+\item {\bf pos\_sat\_info [prn]} Print and plot information about a satellite. \\
+   0 - Disabled \\
+   prn - satellite with prn.
+\item {\bf ap\_state} Print the state of the autopilot
+\item {\bf ap\_print\_closest [print\_rate]} Print and plot distance to closest route point. \\
+   0 - Disabled \\
+   n - Print closest point every n:th iteration.
+\item {\bf ap\_dynamic\_rad [enabled]} Enable or disable dynamic radius. \\
+   0 - Disabled \\
+   1 - Enabled
+\item {\bf ap\_ang\_dist\_comp [enabled]} Enable or disable steering
+  angle distance compensation. \\
+   0 - Disabled \\
+   1 - Enabled
+\item {\bf ap\_set\_look\_ahead [points]} Set the look-ahead distance
+  along the route in points
+\item {\bf ubx\_poll [msg]}  Poll one of the ubx protocol messages. Supported messages: \\
+ UBX\_NAV\_SOL - Position solution \\
+ UBX\_NAV\_RELPOSNED - Relative position to base in NED frame\\ 
+ UBX\_NAV\_SVIN - survey-in data \\
+ UBX\_RXM\_RAWX - raw data\\
+ \end{itemize} 
+
 \newpage 
-\section*{Changelog}
+\section{Changelog}
 
 \begin{changeentry}{2018-X-Y}{Joel}
 Initial version focusing on the RControlStation GUI. 
