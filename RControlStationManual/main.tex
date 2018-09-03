@@ -182,7 +182,8 @@ this connection with a modification shown below.
 
 \todo{Maybe a picture of the little radio tranceiver (The mote?) ?}
 
-\todo{A picture showing what features these provides and how they connect (something like in the paper)}
+\todo{A picture showing what features these provides and how they
+  connect (something like in the paper)}
 
 
 \section{Configuring a Linux Machine}
@@ -342,7 +343,7 @@ behind most of the elements of this GUI.
     mode.  A ``gain'' value can be set for thrust and steering that
     influences how strongly these respond to keyboard interaction.
   \item {\bf Poll Interval:}
-  \item {\bf Stop:} Stops a moving car. \todo{improve} 
+  \item {\bf Stop:} Stops a moving car that is running under auto pilot.
   \end{itemize} 
 \end{minipage}
 
@@ -351,30 +352,37 @@ behind most of the elements of this GUI.
 \label{sec:cars}
 
 %% ------------------------------------------------------------
-\begin{minipage}{0.5\textwidth}
+
+  After adding a car, ``Car 0'' will appear in the {\em Cars} tab with
+  a set controls similar to this image.  To the right of the displayed
+  3D image of a car is a set of controls, toggles and buttons, the
+  ``Car ID'' field should be set so that it corresponds to the setting
+  of the dip switches on the RTK controller. A way to test if the
+  connection to the car is working, is to check the {\bf Poll data}
+  box and checking if the rendered image of the car seems to respond
+  to moving of the actual car.
+  
+\noindent \begin{minipage}{0.5\textwidth}
     \noindent \includegraphics[width=\textwidth]{./screens/Car_orientation.png}
 \end{minipage}
 \begin{minipage}{0.5\textwidth} %% Text Car orientatio
-  After adding a car, ``Car 0'' will appear in the Cars tab with a set
-  controls similar to this image.  The ``Car ID'' field should be set
-  so that it corresponds to the setting of the dip switches on the RTK
-  controller. A way to test if the connection to the car is working,
-  is to check the {\bf Poll data} box and checking if the picture of
-  the car seems to respond to moving of the actual car.
 
-  {\bf Keyboard Control}
+  Toggling {\bf Keyboard Control} allows control of the car via the
+  keyboard arrow keys and {\bf AutoPilot} starts trajectory following
+  mode.
 
-  {\bf AutoPilot}
+  The {\bf Route from map} toggle, turns on or off direct upload of
+  trajectory points to the car as they are added to the map.
 
-  {\bf Route from map}
+  The next two toggles, {\bf BLDC Tool UDP} and {\bf VESC Tool TCP}
+  start servers for interfacing with external tools. 
 
-  {\bf BLDC Tool UDP}
-
-  {\bf VESC Tool TCP}
-
-  {\bf Plot radar}
-  
+  {\bf Plot radar} turns plotting of radar samples on. Note that a
+  radar is not part of the standard setup of an RISE SDVP car.
 \end{minipage}
+
+
+
 %% ------------------------------------------------------------
 
 
