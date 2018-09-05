@@ -381,10 +381,10 @@ behind most of the elements of this GUI.
   radar is not part of the standard setup of an RISE SDVP car.
 \end{minipage}
 
-Under the 3D car image, is a set of indicator bars showing pitch, roll
-and yaw degrees and a speed display. Then there is a set of tabs for
-further configurations or interfacing, these tabs are all explained
-below. 
+There is a set of indicator bars under the 3D model of the car showing
+pitch, roll and yaw degrees and a speed display. Then there is a set
+of tabs for further configurations or interfacing, these tabs are all
+explained below.
 
 %% ------------------------------------------------------------
 
@@ -468,7 +468,26 @@ explained below.
 \noindent \includegraphics[width=\textwidth]{./screens/car_settings_log.png}
 \end{minipage}
 \begin{minipage}{0.7\textwidth} %% Text Car Experiment
-  \todo{text}
+\noindent {\bf Magnetometer:} Turn usage of magnetometer data on or
+offf and configure compensation matrix.
+
+\noindent {\bf GPS:} \todo{ Write }
+
+\noindent {\bf AutoPilot:} Configure the behaviour of the auto
+pilot. If the car should repeat the route after completion check the
+{\em Repeat Route} box. The {\em Base Radius} setting is related to
+the variant of the PurePersuit algorithm used for trajectory following
+where the car heads towards the closest point intersecting the
+trajectory on a circle surrounding the car. There are also three
+different modes for trajectory following: in {\em Speed} mode the car
+uses speed information stored in the trajectory, then there is
+absolute time and relative time where timestamps on the trajectory
+either are treated as an absolute time when car should be at point or
+time relative to previous point.
+
+\noindent {\bf Logging:} Enable, disable and set frequence of logging. There is
+also an {\em External} mode where the log data is sent over for example UART.
+\todo{Fill in more details of how this works}.
 \end{minipage}
 %% ------------------------------------------------------------
 \noindent\begin{minipage}{0.6\textwidth}
@@ -494,7 +513,13 @@ explained below.
   \noindent \includegraphics[width=\textwidth]{./screens/Car_UWB.png}
 \end{minipage}
 \begin{minipage}{0.5\textwidth} %% Text Car UWB
-  \todo{text}
+  This tab allows the configuration of three UWB anchors and also displays a plot
+  of relative error at time.
+  \begin{itemize}
+  \item {\bf ID:} Corresponds to an ID coded into the firmware or the UWB anchor.
+  \item {\bf Px,Py, Pz:} Position of the anchor. The {\em Get} button
+    reads the current position of the car into these fields. 
+  \end{itemize} 
 \end{minipage}
 %% ------------------------------------------------------------
 
@@ -612,9 +637,18 @@ explained below.
 
 \todo{Write}
 
-\section{Operation of the Full System}
+\section{Take a Test Drive}
 
-\todo{ is it possible to describe how to do this in some tutorial fashion? }
+\todo{Something like this:}
+\begin{itemize}
+\item What to look at (GPS fix?)
+\item Set up a trajectory
+\item run autopilot
+\item be ready to abort
+\item .... what else ? 
+\end{itemize} 
+
+
 
 
 
