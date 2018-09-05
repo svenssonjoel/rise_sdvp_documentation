@@ -556,16 +556,46 @@ also an {\em External} mode where the log data is sent over for example UART.
 %% ------------------------------------------------------------
 
 
-\todo{Write}
-
 \subsection{Map}
 
-\noindent \includegraphics[width=\textwidth]{./screens/map_car_control.png}
+This tab shows a map based on OpenStreetMap overlaid with a grid
+showing distances from an origo. The origo is set to the ENU (East
+North Up) reference point used in positioning calculations. This ENU
+point can be configured to be postion of the GNSS-RTK base station.
+
+To zoom in or out on the map use the scrollwheel on the mouse or two
+fingers on the touchpad. Panning is done by clicking and dragging
+with the mouse. The following keyboard shortcuts are also useful for
+interaction the map view:
+
+\noindent\begin{minipage}{0.5\textwidth}
+  \noindent \includegraphics[width=\textwidth]{./screens/map_car_control.png}
+\end{minipage}
+\noindent\begin{minipage}{0.5\textwidth}
+\begin{itemize} 
+  \item {\bf CTRL + Right click:} Update route point or anchor settings
+  \item {\bf Shift + Left click:} Add route point or anchor
+  \item {\bf Shift + Left drag:} Move route point or anchor
+  \item {\bf Shift + right click:} Delete route point or anchor
+  \item {\bf CTRL + SHIFT + Left click:} Zero map ENU coordinates
+\end{itemize}
+\end{minipage}
+
+\noindent \includegraphics[width=0.25\textwidth]{./screens/map_top_right.png}
+
+To the right of the map there is a set of tabs with controls and
+configurations for use together with the map. The first of these tabs
+is called {\em Car Control}
 
 
-%\begin{minipage}{0.25\textwidth}
-\noindent \includegraphics[width=0.25\textwidth,height=12cm]{./screens/map_car_control_panel.png}
-%\end{minipage}
+\noindent\begin{minipage}{0.25\textwidth}
+\noindent \includegraphics[width=\textwidth,height=12cm]{./screens/map_car_control_panel2.png}
+\end{minipage}
+\noindent\begin{minipage}{0.75\textwidth}
+  
+\end{minipage}
+
+
 %\begin{minipage}{0.25\textwidth}
 \includegraphics[width=0.25\textwidth,height=12cm]{./screens/map_edit_panel.png}
 %\end{minipage}
@@ -575,17 +605,6 @@ also an {\em External} mode where the log data is sent over for example UART.
 %\begin{minipage}{0.25\textwidth}
 \includegraphics[width=0.25\textwidth,height=12cm]{./screens/map_view_panel.png}
 %\end{minipage}
-
-
-\subsubsection{Keyboard Shortcuts}
-  
-\begin{itemize} 
-  \item {\bf CTRL + Right click:} Update route point or anchor settings
-  \item {\bf Shift + Left click:} Add route point or anchor
-  \item {\bf Shift + Left drag:} Move route point or anchor
-  \item {\bf Shift + right click:} Delete route point or anchor
-  \item {\bf CTRL + SHIFT + Left click:} Zero map ENU coordinates
-\end{itemize} 
 
 \subsection{RTCM Client}
 
