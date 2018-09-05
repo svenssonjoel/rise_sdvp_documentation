@@ -28,7 +28,6 @@
 %\thispagestyle{fancy}
 % \thispagestyle{headings}
 
-
 \makeatletter
 \renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
   \thispagestyle{empty}
@@ -93,9 +92,9 @@
 
 This manual aims to outline and exemplify configuration and use of the
 RISE Self Driving model Vehicle Platform (SDVP). It does not go in
-depth in describing the hardware or software that run on the
+depth in describing the hardware or software that runs on the
 microcontrollers in for example the RC car, but rather tries to give
-just enough background for starting operate the system using the
+enough background for starting operate the system using the
 RControlStation software which is a graphical user interface for
 controlling and monitoring the SDVP.
 
@@ -104,29 +103,30 @@ RControlStation can, among much more, be used for the following:
 \item Track and trace movement of the SDVP overlaid on a map
   implemented based on OpenStreetMap.
 \item Draw, load and save trajectories for the car to
-  follow. Trajectories are visualised as line segments on the map.
+  follow. Trajectories are visualised as points connected by line
+  segments on the map.
 \item Control the car directly via the keyboard.
 \item Configure car dynamics.
 \item Configure numerous parameters related to the positioning system.
 \item monitor and log data obtained from the SDVP. 
 \end{itemize} 
 
-
-\todo{Write more here about what RControlStation is in an overview kind of way} 
-
 \section{RISE SDVP Hardware Overview} 
 
 The hardware found on the RC car consists of a motor controller (the
-VESC), another controller board that call the RTK Controller and a
+VESC), another controller board that we call the RTK Controller and a
 Raspberry Pi.  The Raspberry Pi is there to provide Wifi and/or 4G
 cellular connectivity and enable for example remote debugging. The RTK
-Controller implements the self driving aspects of the SDVP, includes
-positioning capabilities using GPS and has two radios for
+Controller implements the self driving aspects of the SDVP and
+includes positioning capabilities using GPS and has two radios for
 communication. The RTK Controller connects to the car steering servo,
-providing its power and PWM signal for control. The RTK controller
-connects to the VESC over CAN-bus. The Raspberry Pi is connected to
-the RTK Controller over USB, it is possible to power the Pi through
-this connection with a modification shown below.
+providing its power and PWM signal for control. The RTK controller is
+also connected to the VESC over CAN-bus. If a Raspberry Pi is present
+in the system it is connected to the RTK Controller over USB, it is
+possible to power the Pi through this connection with a modification
+shown below. Some of the GPIO pins of the Pi can also be connected to
+the SWD port on the RTK Controller to enable remote flashing of the
+embedded software.
 
 \vspace{5mm}
 
@@ -419,8 +419,15 @@ Teslas.
 
 
 %% ------------------------------------------------------------
-\noindent\begin{minipage}{0.5\textwidth} %% Text Car calibration
-  \todo{text}
+\noindent\begin{minipage}{0.5\textwidth} %% Text Car calibration On
+On this tab there are controls for steering servo and magnetometer
+calibration.  To callibrate the magnetometer, turn on {\bf poll data}
+and check the store samples box. There are buttons for calculating
+compensation, loading and storing of samples and to view C code
+representing the calibrations settings.
+
+\todo{Needs improvement}
+
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
   \noindent \includegraphics[width=\textwidth]{./screens/Car_calibration.png}
@@ -438,16 +445,33 @@ Teslas.
 
 %% ------------------------------------------------------------
 \noindent\begin{minipage}{0.5\textwidth} %% Text Car Configuration
-  \todo{text}
+
+The {\em Car Settings} tab contains configurations that can be loaded
+and stored to the car. Loading and storing is done using the up and
+down arrow buttons located at the bottom right. The preferred way of
+changing these is to first load the current settings from the car with
+the up button, then perform changes followed by writing the
+configuration back to the car. Changing the information in the top
+half of this tab requires knowledge of the dynamics of the car.
+
+The bottom half of this tab contains a number of sub-tabs that are
+explained below.
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
   \noindent \includegraphics[width=\textwidth]{./screens/Car_configuration.png}
 \end{minipage}
 %% ------------------------------------------------------------
-
-
+\noindent\begin{minipage}{0.4\textwidth}
+\noindent \includegraphics[width=\textwidth]{./screens/car_settings_mag.png}
+\noindent \includegraphics[width=\textwidth]{./screens/car_settings_gps.png}
+\noindent \includegraphics[width=\textwidth]{./screens/car_settings_auto.png}
+\noindent \includegraphics[width=\textwidth]{./screens/car_settings_log.png}
+\end{minipage}
+\begin{minipage}{0.7\textwidth} %% Text Car Experiment
+  \todo{text}
+\end{minipage}
 %% ------------------------------------------------------------
-\noindent\begin{minipage}{0.5\textwidth}
+\noindent\begin{minipage}{0.6\textwidth}
   \noindent \includegraphics[width=\textwidth]{./screens/Car_experiment_plot.png}
 \end{minipage}
 \begin{minipage}{0.5\textwidth} %% Text Car Experiment
