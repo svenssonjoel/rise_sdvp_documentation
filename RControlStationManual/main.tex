@@ -524,7 +524,6 @@ also an {\em External} mode where the log data is sent over for example UART.
 %% ------------------------------------------------------------
 
 
-
 %% \subsection{Quadcopters}
 %% \label{sec:quads}
 
@@ -592,28 +591,61 @@ selected cars movements automatically. The buttons are for turning
 auto pilot, manual control and stopping a car running on auto pilot.
 \end{minipage} 
 
-Below to the right, there is a set of tabs with controls and
+To the right of the map, there is also a set of tabs with controls and
 configurations for use together with the map. The first of these tabs
 is called {\em Car Control}
 
 
 \noindent\begin{minipage}{0.25\textwidth}
 \noindent \includegraphics[width=\textwidth,height=12cm]{./screens/map_car_control_panel2.png}
+\begin{center}
+{\bf A}
+\end{center}
 \end{minipage}
-\noindent\begin{minipage}{0.75\textwidth} This tab lets you load base
-station position from the car or store an updated one (from the map
-view) to the car. \todo{What is Abs yaw?} 
+\noindent\begin{minipage}{0.25\textwidth}  
+\noindent\includegraphics[width=\textwidth,height=12cm]{./screens/map_edit_panel.png}
+\begin{center}
+{\bf B}
+\end{center}
+\end{minipage}
+\noindent\begin{minipage}{0.25\textwidth}  
+\noindent\includegraphics[width=\textwidth,height=12cm]{./screens/map_import_panel.png}
+\begin{center}
+{\bf C}
+\end{center}
+\end{minipage}
+\noindent\begin{minipage}{0.25\textwidth}  
+\noindent\includegraphics[width=\textwidth,height=12cm]{./screens/map_view_panel.png}
+\begin{center}
+{\bf D}
+\end{center}
 \end{minipage}
 
+\vspace{5mm}
+
+\noindent{\bf A:} This tab lets you load base station position from the car or
+store an updated one (from the map view) to the car. \todo{What is Abs
+  yaw?}
+
+\noindent{\bf B:} Contains controls for route and anchor editing. Here
+you can read and write routes to and from the car and write anchor
+positions to the car.  You can change speed settings that affect the
+next added route point and generate circles, arcs.
+
+\noindent{\bf C:}
+
+\noindent{\bf D:} This tab contains settings for how and what is drawn
+in the map view.  It is also possible to save the map view here as PNG
+or as vector format in a PDF.
 
 %\begin{minipage}{0.25\textwidth}
-\includegraphics[width=0.25\textwidth,height=12cm]{./screens/map_edit_panel.png}
+%\includegraphics[width=0.25\textwidth,height=12cm]{./screens/map_edit_panel.png}
 %\end{minipage}
 %\begin{minipage}{0.25\textwidth}
-\includegraphics[width=0.25\textwidth,height=12cm]{./screens/map_import_panel.png}
+%\includegraphics[width=0.25\textwidth,height=12cm]{./screens/map_import_panel.png}
 %\end{minipage}
 %\begin{minipage}{0.25\textwidth}
-\includegraphics[width=0.25\textwidth,height=12cm]{./screens/map_view_panel.png}
+%\includegraphics[width=0.25\textwidth,height=12cm]{./screens/map_view_panel.png}
 %\end{minipage}
 
 \subsection{RTCM Client}
