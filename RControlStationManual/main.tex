@@ -335,7 +335,7 @@ behind most of the elements of this GUI.
   \item {\bf Add Vehicles:} Add a car or quadcopter. Adding for
     example a car, changes the view on the right side to display a car
     and its set of car specific controls. The car specific controls are
-    shown in Section~\ref{sec:cars} and quadcopter controls in Section\ref{sec:quads}.
+    shown in Section~\ref{sec:cars}. % and quadcopter controls in Section\ref{sec:quads}.
   \item {\bf Joystick:} 
   \item {\bf Control:} Is related to the keyboard control
     functionality. It can be turned off, put in ``D'' mode or ``I''
@@ -649,10 +649,12 @@ or as vector format in a PDF.
 %\end{minipage}
 
 \subsection{RTCM Client}
-
+\noindent\begin{minipage}{0.5\linewidth} 
 \noindent \includegraphics[width=\textwidth]{./screens/RTCM_client.png}
-
-\todo{Write}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+  \todo{Write}
+\end{minipage}
 
 \subsection{Base Station}
 
@@ -664,15 +666,40 @@ or as vector format in a PDF.
 
 \subsection{Network Interface}
 
-\noindent \includegraphics[width=\textwidth]{./screens/network_interface.png}
+Here, TCP and UDP servers can be startet for allowing external programs to connect
+to RControlStation for example using the RControlStationComm library that is outlined
+in Section~\ref{sec:comm}.
 
-\todo{Write}
+\noindent\begin{minipage}{0.5\textwidth}
+\noindent \includegraphics[width=\textwidth]{./screens/network_interface.png}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+
+You can chose what ports to use and activate TCP and UDP independently. The indicator will
+show when external software has connected.
+
+Using this network interface gives external software control over the
+car, via RControlStation, this can be disabled if undesirable or if
+debugging. It is also possible to choose not to forward state updates
+from the car to external software.
+
+Currently it seems that using external software over TCP does not work
+when also checking the {\em Poll Data} box in RControlStation, see
+Section~\ref{sec:cars}.
+\end{minipage}
+External software can modify and add routes via an {\em
+  addRoutePoints} function (if using the RControlStationComm library),
+it is possible to toggle the displaying of these in map view on or off
+here.
+
 
 \subsection{Mote}
-
+\noindent\begin{minipage}{0.5\linewidth}
 \noindent \includegraphics[width=\textwidth]{./screens/mote.png}
-
-\todo{Write}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+  \todo{Write}
+\end{minipage}
 
 \subsection{NCom CLient}
 
@@ -713,7 +740,7 @@ or as vector format in a PDF.
 
 
 
-\section{RControlStationComm Library}
+\section{RControlStationComm Library}\label{sec:comm}
 
 \todo{Write}
 \subsection{C++ library}
