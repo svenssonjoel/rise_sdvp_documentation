@@ -648,13 +648,31 @@ or as vector format in a PDF.
 %\includegraphics[width=0.25\textwidth,height=12cm]{./screens/map_view_panel.png}
 %\end{minipage}
 
+  
 \subsection{RTCM Client}
+
+On this tab you can configure a connection to an NTRIP service for RTK correction data.
+  NTRIP stands for {\em (Networked Transport of RTCM via Internet Protocol} and RTCM here is
+  a standard for for transmission of DGNSS data.
+  
+
 \noindent\begin{minipage}{0.5\linewidth} 
 \noindent \includegraphics[width=\textwidth]{./screens/RTCM_client.png}
 \end{minipage}
 \begin{minipage}{0.5\linewidth}
-  \todo{Write}
+  If you have a subscription with a streaming service
+  you can enter the details here (for example \url{www.euref-ip.net} may be a starting point).
+
+you can also configure the RTK Controller to receive these messages
+over the serialport using the {\em Serial} field.
+
+It is possible that the data stream does not contain information about
+the base station position of which relative measurements are
+performed. In that case, the position of the base station can be
+hardcoded here using the {\em Send (or override) Reference Station
+  Position}.
 \end{minipage}
+The bottom part of this tab displays statistics of messages received.  
 
 \subsection{Base Station}
 
