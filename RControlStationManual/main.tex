@@ -63,7 +63,12 @@
                  \vspace{2mm}
                }
 
-\newcommand{\todo}[1]{{\color{red} \textbf{TODO:} #1}}
+\def\printtodos{0}
+               
+\newcommand{\todo}[1]{
+  \if\printtodos1
+      {\color{red} \textbf{TODO:} #1}
+  \fi}
                
 
 
@@ -750,6 +755,9 @@ here.
 \end{minipage}
 
 \subsection{Logging and Analysis}
+The logging and analysis tabs collect different kinds of data and
+allows loading and storing of log files. We are not explaining these
+any further in this version of this manual.
 
 \noindent\begin{minipage}{0.3\linewidth}
 \noindent \includegraphics[width=\textwidth]{./screens/Log1.png}
