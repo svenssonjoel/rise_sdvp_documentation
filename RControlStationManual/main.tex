@@ -558,7 +558,7 @@ also an {\em External} mode where the log data is sent over for example UART.
 
 \subsection{Map}
 
-This tab shows a map based on OpenStreetMap overlaid with a grid
+The map view is based on OpenStreetMap that is overlaid with a grid
 showing distances from an origo. The origo is set to the ENU (East
 North Up) reference point used in positioning calculations. This ENU
 point can be configured to be postion of the GNSS-RTK base station.
@@ -649,7 +649,7 @@ or as vector format in a PDF.
 %\end{minipage}
 
   
-\subsection{RTCM Client}
+\subsection{RTCM Client}\label{sec:RTCM}
 
 On this tab you can configure a connection to an NTRIP service for RTK correction data.
   NTRIP stands for {\em (Networked Transport of RTCM via Internet Protocol} and RTCM here is
@@ -676,21 +676,32 @@ The bottom part of this tab displays statistics of messages received.
 
 \subsection{Base Station}
 
-\noindent\begin{minipage}{0.5\linewidth}
-\noindent \includegraphics[width=\textwidth]{./screens/base_station_NMEA.png}
-\end{minipage}
-\begin{minipage}{0.5\linewidth}
-  \todo{TEXT!}
-\end{minipage}
+
+An RTK Controller equipped with GPS antenna and a Ublox chip can also be configured
+to be used as a base station for sending of correction data to vehicles. 
 
 \noindent\begin{minipage}{0.5\linewidth}
-  \todo{TEXT!}
-\end{minipage}
-\begin{minipage}{0.5\linewidth}
 \noindent \includegraphics[width=\textwidth]{./screens/base_station_UBLOX.png}
 \end{minipage}
+\begin{minipage}{0.5\linewidth}
+  Here you configure an RTK Controller equipped with a Ublox chip
+  connected serially.  The position of the base station can be
+  hardcoded in the {\em Base Station Position} or derived using the
+  antenna button on the right. To include the position or not in the
+  data stream being sent out, check or uncheck the {\em Send} box.
 
-\todo{Write}
+  The two bottom checkboxes activates sending of messages via the
+  internal SDVP message stransmission system and/or via TCP. If
+  sending over TCP another instance of RControlStation can subscribe
+  to the data sent using the previous tab, Section~\ref{sec:RTCM}.
+\end{minipage}
+
+\noindent\begin{minipage}{0.5\linewidth}
+  \todo{TEXT!}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+\noindent \includegraphics[width=\textwidth]{./screens/base_station_NMEA.png}
+\end{minipage}
 
 \subsection{Network Interface}
 
@@ -740,30 +751,31 @@ here.
 
 \subsection{Logging and Analysis}
 
-\noindent\begin{minipage}{0.5\linewidth}
+\noindent\begin{minipage}{0.3\linewidth}
 \noindent \includegraphics[width=\textwidth]{./screens/Log1.png}
 \end{minipage}
-\begin{minipage}{0.5\linewidth}
-  \todo{TEXT!}
-\end{minipage}
-
-\noindent\begin{minipage}{0.5\linewidth}
-  \todo{TEXT!}
-\end{minipage}
-\begin{minipage}{0.5\linewidth}
+\begin{minipage}{0.3\linewidth}
 \noindent \includegraphics[width=\textwidth]{./screens/Log2.png}
 \end{minipage}
-
-\noindent\begin{minipage}{0.5\linewidth}
+\begin{minipage}{0.3\linewidth}
 \noindent \includegraphics[width=\textwidth]{./screens/Log3.png}
 \end{minipage}
-\begin{minipage}{0.5\linewidth}
-  \todo{TEXT!}
-\end{minipage}
 
-\todo{Write}
+%% \begin{minipage}{0.5\linewidth}
+%%   \todo{TEXT!}
+%% \end{minipage}
 
-\section{Example Setup: HIL Simulation Rig}
+%% \noindent\begin{minipage}{0.5\linewidth}
+%%   \todo{TEXT!}
+%% \end{minipage}
+
+%% \begin{minipage}{0.5\linewidth}
+%%   \todo{TEXT!}
+%% \end{minipage}
+
+%% \todo{Write}
+
+\section{Example Setup: HIL Simulator}
 
 \todo{Write}
 
