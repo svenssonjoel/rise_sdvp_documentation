@@ -785,6 +785,32 @@ any further in this version of this manual.
 
 \section{Example Setup: HIL Simulator}
 
+RControlStation together with a RTK controller can be used as a
+hardware in the loop simulator. The simplest form of this setup is an
+RTK controller connected to a computer over a USB cable, but adding
+the Raspberry pi and using wifi or ethernet is also possible. Yet
+another option is to use the RTK controller connected over radio with
+a tranceiver connected to the computer's USB port. Note that it is
+also possible to use a fully assembled car as a HiL simulator by doing
+the configurations shown below, without having to physically
+disconnect any wires. 
+
+
+
+%% \begin{itemize}
+%% \item A
+%% \item B
+%% \item C
+%% \end{itemize} 
+
+\begin{minipage}{0.5\linewidth}
+\noindent \includegraphics[width=\textwidth]{./screens/car_tab_simulate.png}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+\noindent \includegraphics[width=\textwidth]{./screens/car_tab_autopilot.png}
+\end{minipage}
+
+
 
 \begin{minipage}{0.5\linewidth}
 \noindent \includegraphics[width=\textwidth]{./screens/autopilotdrive.png}
