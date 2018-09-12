@@ -659,7 +659,7 @@ auto pilot, manual control and stopping a car running on auto pilot.
 \end{minipage} 
 
 To the right of the map, there is also a set of tabs with controls and
-configurations for use together with the map. The first of these tabs
+configuration options for use together with the map. The first of these tabs
 is called {\em Car Control}
 
 
@@ -699,7 +699,9 @@ you can read and write routes to and from the car and write anchor
 positions to the car.  You can change speed settings that affect the
 next added route point and generate circles, arcs.
 
-\noindent{\bf C:}
+\noindent{\bf C:} On this tab you can import a logfile containing NMEA
+data and plot based on this data on the map view.  You can also
+connect to TCP servers that stream out NMEA data and plot on the map.
 
 \noindent{\bf D:} This tab contains settings for how and what is drawn
 in the map view.  It is also possible to save the map view here as PNG
@@ -743,28 +745,34 @@ The bottom part of this tab displays statistics of messages received.
 
 \subsection{Base Station}
 
-
-An RTK Controller equipped with GPS antenna and a Ublox chip can also be configured
-to be used as a base station for sending of correction data to vehicles. 
+You can set up a personal RTK GPS base station using a laptop and a Ublox.
+For example the Ublox equipped RTK Controller could be connected to the laptop USB port.
 
 \noindent\begin{minipage}{0.5\linewidth}
 \noindent \includegraphics[width=\textwidth]{./screens/base_station_UBLOX.png}
 \end{minipage}
 \begin{minipage}{0.5\linewidth}
-  Here you configure an RTK Controller equipped with a Ublox chip
-  connected serially.  The position of the base station can be
-  hardcoded in the {\em Base Station Position} or derived using the
-  antenna button on the right. To include the position or not in the
+  The position of the base station can be hardcoded in the {\em Base
+    Station Position} or derived using the antenna button on the
+  right. To compute a position the values from the NMEA tab will be
+  used and the system must run for a while to be able to compute an
+  average.
+
+  You can choose to include the position or not in the
   data stream being sent out, check or uncheck the {\em Send} box.
 
   The two bottom checkboxes activates sending of messages via the
-  internal SDVP message stransmission system and/or via TCP. If
-  sending over TCP another instance of RControlStation can subscribe
-  to the data sent using the previous tab, Section~\ref{sec:RTCM}.
+  internal SDVP message transmission system. If sending over TCP
+  another instance of RControlStation can subscribe to the data sent
+  using the previous tab, Section~\ref{sec:RTCM}, but could also be
+  used by arbitrary software wanting these readings.
 \end{minipage}
 
 \noindent\begin{minipage}{0.5\linewidth}
-  \todo{TEXT!}
+
+{\bf Note:} That both of these tabs are currently a bit
+overcomplicated and will be simplified and more automated. 
+
 \end{minipage}
 \noindent\begin{minipage}{0.5\linewidth}
 \noindent \includegraphics[width=\textwidth]{./screens/base_station_NMEA.png}
@@ -781,8 +789,9 @@ in Section~\ref{sec:comm}.
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 
-You can chose what ports to use and activate TCP and UDP independently. The indicator will
-show when external software has connected.
+You can chose what ports to use and activate TCP and UDP
+independently. The indicator will show when external software has
+connected.
 
 Using this network interface gives external software control over the
 car, via RControlStation, this can be disabled if undesirable or if
@@ -804,7 +813,19 @@ here.
 \noindent \includegraphics[width=\textwidth]{./screens/mote.png}
 \end{minipage}
 \begin{minipage}{0.5\linewidth}
-  \todo{Write}
+  This tab is for when you use an RTK controller with the firmware
+  compiled in ``Mote mode''.  I this mode the RTK controller can act
+  as a base station and send correction data to cars over radio.
+
+  The configuration options here are similar in concept to the ones we
+  showed earlier (the soon to be changed {\em base station} tab). But are here
+  already more automated.
+
+  You can select whether to use a handcoded position for the base
+  station using modes ``Fixed'' or to allow the automatic position
+  computation ``Survey in''.  If using the survey in modes you can
+  also set what accuracy that should be present and for how long it
+  must be stable before accepting it as position.
 \end{minipage}
 
 %% \subsection{NCom CLient}
@@ -855,7 +876,7 @@ another option is to use the RTK controller connected over radio with
 a tranceiver connected to the computer's USB port. Note that it is
 also possible to use a fully assembled car as a HiL simulator by doing
 the configurations shown below, without having to physically
-disconnect any wires. 
+disconnect any wires.  
 
 \noindent\begin{minipage}{0.5\linewidth}
 \noindent \includegraphics[width=\textwidth]{./screens/car_tab_simulate.png}
