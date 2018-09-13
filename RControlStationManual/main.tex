@@ -104,7 +104,7 @@
 This manual aims to outline and exemplify configuration and use of the
 RISE Self Driving model Vehicle Platform (SDVP). It does not go in
 depth in describing the hardware or software that runs on the
-microcontrollers in for example the RC car, but rather tries to give
+micro-controllers in for example the RC car, but rather tries to give
 enough background for starting operate the system using the
 RControlStation software which is a graphical user interface for
 controlling and monitoring the SDVP.
@@ -114,7 +114,7 @@ RControlStation can, among much more, be used for the following:
 \item Track and trace movement of the SDVP overlaid on a map
   implemented based on OpenStreetMap.
 \item Draw, load and save trajectories for the car to
-  follow. Trajectories are visualised as points connected by line
+  follow. Trajectories are visualized as points connected by line
   segments on the map.
 \item Control the car directly via the keyboard.
 \item Configure car dynamics.
@@ -152,7 +152,7 @@ enable remote flashing, using OpenOCD, of the embedded software.
   identity of the board. The set of connector pins along the right
   edge are for controlling servos and the white sockets are CAN, I2C,
   UART, SWD and SPI connectors.  On the bottom view you can see solder
-  pads for a UBLOX chip (this card happens to not be equiped with one)
+  pads for a UBLOX chip (this card happens to not be equipped with one)
   and a small switch for toggling ``Power over USB'' to power a
   connected Raspberry Pi backwards through its USB port.  The RTK
   Controller connects to the computer running RControlStation either,
@@ -165,10 +165,10 @@ enable remote flashing, using OpenOCD, of the embedded software.
 \noindent \begin{minipage}{0.66\textwidth} These pictures show the
   VESC motor controller, alone (top) and together with an RTK
   Controller and a motor (bottom). On the left side of the VESC (block
-  of aluminium) you can see a battery connector. You can connect 3 -
+  of aluminum) you can see a battery connector. You can connect 3 -
   12 cell lithium ion battery on this connector, resulting resulting
-  in 8V to 50V. On the other side of the aluminium are three cables
-  for connecting a brushless motor.  On the bottom of the VESC there
+  in 8V to 50V. On the other side of the aluminum are three cables
+  for connecting a brush-less motor.  On the bottom of the VESC there
   is also a set of connectors for CAN, SWD and so on. On the bottom
   picture, the RTK Controller is connected to the VESC over CAN.
   \todo{Insert information about max/min voltage}
@@ -192,7 +192,7 @@ enable remote flashing, using OpenOCD, of the embedded software.
   this to the 3.3V needed.
 \end{minipage}
 
-\todo{Maybe a picture of the little radio tranceiver (The mote?) ?}
+\todo{Maybe a picture of the little radio transceiver (The mote?) ?}
 
 \todo{A picture showing what features these provides and how they
   connect (something like in the paper)}
@@ -200,7 +200,7 @@ enable remote flashing, using OpenOCD, of the embedded software.
 
 \section{Configuring a Linux Machine}
 
-This section describes how to set up a linux system (an Ubuntu system
+This section describes how to set up a Linux system (an Ubuntu system
 is assumed) with the tools needed to run RControlStation and to
 develop towards the RISE SDVP. Start out by installing some basic
 dependencies:
@@ -221,7 +221,7 @@ to directly download the open source version. Now, install Qt and
 Eclipse, both have install wizards to help with this procedure. 
 
 Arm development tools are needed if you want to compile new versions
-of the various firmwares for the microcontrollers on the
+of the various firmwares for the micro-controllers on the
 SDVP. Download arm development tools from \url{developer.arm.com} or
 click this
 \href{https://developer.arm.com/-/media/Files/downloads/gnu-rm/7-2018q2/gcc-arm-none-eabi-7-2018-q2-update-linux.tar.bz2?revision=bc2c96c0-14b5-4bb4-9f18-bceb4050fee7?product=GNU%20Arm%20Embedded%20Toolchain,64-bit,,Linux,7-2018-q2-update}{link}. 
@@ -357,7 +357,9 @@ behind most of the elements of this GUI.
     mode. ``D'' refers to duty mode and ``I'' representing current
     mode.  A ``gain'' value can be set for thrust and steering that
     influences how strongly these respond to keyboard interaction.
-  \item {\bf Poll Interval:} Interval with which to poll car for data. 
+  \item {\bf Poll Interval:} Interval with which to poll car for updates to status.
+    This sets the frequency with which a ``getState'' message is sent to cars. The reply to
+    this message from the car contains, among much more, position and speed. 
   \item {\bf Stop:} Stops a moving car that is running under auto pilot. This
     is one of the many ``Emergency stop'' buttons available in RControlStation. 
   \end{itemize} 
@@ -383,7 +385,7 @@ behind most of the elements of this GUI.
 \noindent \begin{minipage}{0.5\textwidth}
     \noindent \includegraphics[width=\textwidth]{./screens/Car_orientation.png}
 \end{minipage}
-\begin{minipage}{0.5\textwidth} %% Text Car orientatio
+\begin{minipage}{0.5\textwidth} %% Text Car orientation
 
   \noindent {\bf Car orientation:} Toggling {\bf Keyboard Control}
   allows control of the car via the keyboard arrow keys and {\bf
@@ -444,7 +446,7 @@ Teslas.
 %% ------------------------------------------------------------
 \noindent\begin{minipage}{0.5\textwidth} %% Text Car calibration On
 \noindent{\bf Calibration:} On this tab there are controls for
-steering servo and magnetometer calibration.  To callibrate the
+steering servo and magnetometer calibration.  To calibrate the
 magnetometer, turn on {\bf poll data} and check the store samples
 box. There are buttons for calculating compensation, loading and
 storing of samples and to view C code representing the calibrations
@@ -468,8 +470,8 @@ settings.
   regular GPS/GNSS or if the RTK computations have converged and
   reached Fix. This status is important as there are big differences
   in the precision of obtained positions depending on fix type. {\bf Sats:} will indicate
-  the number of satelites that are visible to the car. \todo{Corr age}
-  It is alos possible to start an ``NMEA server'' here for sending the
+  the number of satellites that are visible to the car. \todo{Corr age}
+  It is also possible to start an ``NMEA server'' here for sending the
   data obtained from car onwards to some arbitrary external software
   for further processing or logging.
 \end{minipage}
@@ -511,7 +513,7 @@ explained below.
 \end{minipage}
 \begin{minipage}{0.6\textwidth} %% Text Car Experiment
 \noindent {\bf Magnetometer:} Turn usage of magnetometer data on or
-offf and configure compensation matrix.
+off and configure compensation matrix.
 
 \noindent {\bf GPS:} Here you can enable the use of GPS in the
 positioning calculations. This can be left always on, the system will
@@ -519,17 +521,17 @@ make use of GPS information only if available. The only reason to turn
 this off, would be if you do not want to use any GPS information even
 if available. The {\em Send NMEA data} checkbox should be checked if
 you want to send GPS messages back to RControlStation (to the above
-mentioned GPS tab). For SDVPs equiped with the M8P variant of the
+mentioned GPS tab). For SDVPs equipped with the M8P variant of the
 Ublox chip you can also check {\em Require RTK Solution} and {\em
-  Require Ublox Quality} and set these to desierd values. The SDVP
+  Require Ublox Quality} and set these to desired values. The SDVP
 will then only use these values in position computations if those
 conditions are met.  The {\em Position Correction} parameters (gain
 values), control how strongly the GPS measurements will interface the
-postioning computations that are also based on for example odometry.
+positioning computations that are also based on for example odometry.
 The {\em Antenna Position} settings are explained below using an
 additional image.
 
-\noindent {\bf AutoPilot:} Configure the behaviour of the auto
+\noindent {\bf AutoPilot:} Configure the behavior of the auto
 pilot. If the car should repeat the route after completion check the
 {\em Repeat Route} box. The {\em Base Radius} setting is related to
 the variant of the PurePersuit algorithm used for trajectory following
@@ -739,12 +741,12 @@ On this tab you can configure a connection to an NTRIP service for RTK correctio
   you can enter the details here (for example \url{www.euref-ip.net} may be a starting point).
 
 you can also configure the RTK Controller to receive these messages
-over the serialport using the {\em Serial} field.
+over the serial-port using the {\em Serial} field.
 
 It is possible that the data stream does not contain information about
 the base station position of which relative measurements are
 performed. In that case, the position of the base station can be
-hardcoded here using the {\em Send (or override) Reference Station
+hard-coded here using the {\em Send (or override) Reference Station
   Position}.
 \end{minipage}
 The bottom part of this tab displays statistics of messages received.  
@@ -758,7 +760,7 @@ For example the Ublox equipped RTK Controller could be connected to the laptop U
 \noindent \includegraphics[width=\textwidth]{./screens/base_station_UBLOX.png}
 \end{minipage}
 \begin{minipage}{0.5\linewidth}
-  The position of the base station can be hardcoded in the {\em Base
+  The position of the base station can be hard-coded in the {\em Base
     Station Position} or derived using the antenna button on the
   right. To compute a position the values from the NMEA tab will be
   used and the system must run for a while to be able to compute an
@@ -777,7 +779,7 @@ For example the Ublox equipped RTK Controller could be connected to the laptop U
 \noindent\begin{minipage}{0.5\linewidth}
 
 {\bf Note:} That both of these tabs are currently a bit
-overcomplicated and will be simplified and more automated. 
+over-complicated and will be simplified and more automated. 
 
 \end{minipage}
 \noindent\begin{minipage}{0.5\linewidth}
@@ -827,14 +829,14 @@ here.
   showed earlier (the soon to be changed {\em base station} tab). But are here
   already more automated.
 
-  You can select whether to use a handcoded position for the base
+  You can select whether to use a hand-coded position for the base
   station using modes ``Fixed'' or to allow the automatic position
   computation ``Survey in''.  If using the survey in modes you can
   also set what accuracy that should be present and for how long it
   must be stable before accepting it as position.
 \end{minipage}
 
-%% \subsection{NCom CLient}
+%% \subsection{NCom Client}
 
 %% \noindent\begin{minipage}{0.5\linewidth}
 %% \noindent \includegraphics[width=\textwidth]{./screens/ncom_client.png}
@@ -887,6 +889,28 @@ disconnect any wires.
 \noindent\begin{minipage}{0.5\linewidth}
 \noindent \includegraphics[width=\textwidth]{./screens/car_tab_simulate.png}
 \end{minipage}
+\noindent\begin{minipage}{0.5\linewidth}
+The important settings here for simulation is:
+\begin{itemize}
+\item {\bf Use Odometry for YAW Correction:} Should be checked.
+\item {\bf YAW IMU Gain:} should be set to zero.
+\item {\bf Simulate Motor:} Should be checked, unless you are running
+  the car raised from the ground on for example a box.
+\end{itemize}
+Before changing settings, read the default values from the car using
+the disk icon or the current settings on the car using the up-arrow
+icon.
+\end{minipage}
+
+
+\noindent\begin{minipage}{0.5\linewidth} There are also some settings
+related to the autopilot that may want to look at before proceeding.
+These settings are decided by what you want to do such as repeal
+routes or what mode of trajectory following you are interested
+in. Since we are not moving any car for real these can be set rather
+freely without much risk. Maybe consider the maximum speed setting if
+you are running without motor simulations on a full car.
+\end{minipage}
 \begin{minipage}{0.5\linewidth}
 \noindent \includegraphics[width=\textwidth]{./screens/car_tab_autopilot.png}
 \end{minipage}
@@ -896,6 +920,22 @@ disconnect any wires.
 \noindent\begin{minipage}{0.5\linewidth}
 \noindent \includegraphics[width=\textwidth]{./screens/autopilotdrive.png}
 \end{minipage}
+\noindent\begin{minipage}{0.5\linewidth} Now draw a route on the map
+by {\bf Shift + click} in a number of positions on the map.
+
+You can also experiment with moving the car around using the arrow keys. First press
+the joystick icon to enable this. Remember to turn on {\bf Poll Data} on the car tab.
+\end{minipage}
+
+
+\noindent\begin{minipage}{0.5\linewidth} For the car to automatically
+follow the route, it needs to be uploaded to the car.  This is done on
+the tab activated to the right of the map view as shown in this
+picture.  Uploading to the car is done using the down-arrow icon under
+the {\em Upload Current Route} label.  If this is successfully
+acknowledged by the car (Green text bottom right of window), you can
+start the auto pilot by clicking the icon that looks like a computer.
+\end{minipage}
 \begin{minipage}{0.5\linewidth}
 \noindent \includegraphics[width=\textwidth]{./screens/autopilotdrive2.png}
 \end{minipage}
@@ -903,22 +943,28 @@ disconnect any wires.
 
 \section{Example Setup: Fully Operational System}
 
-\todo{Write}
+This is the case when you have a full car setup and want to drive
+outside. Expecting that it is configured correctly, which is out of
+scope of this document, this setup is quite easy.
+If the above HiL experiment worked well then the changes needed are as follows:
+\begin{itemize}
+\item {\bf Simulate Motor:} Should be unchecked. 
+\item {\bf YAW IMU Gain:} Set to 0.5.
+\item {\bf USE Odometry for YAW Correctio:} Uncheck. 
+\end{itemize} 
 
+In this setup it is more important to think about safety and start out
+slow. So set auto pilot max speed to a low number. Also, familiarize
+yourself with the positions of the {\bf Stop} buttons to be able to
+quickly stop the car if something seems wrong. When looking at the map
+view you will have a stop button on the bottom left of the window and
+one on the right side of the window close to the top.
 
+Also look at the GPS tabs and check the status of the positioning
+system, a {\bf Fix} status is prefereable. 
 
-
-%% \section{Take a Test Drive}
-
-%% \todo{Something like this:}
-%% \begin{itemize}
-%% \item What to look at (GPS fix?)
-%% \item Set up a trajectory
-%% \item run autopilot
-%% \item be ready to abort
-%% \item .... what else ? 
-%% \end{itemize} 
-
+Just as in the HiL case, first try driving the car around with the
+arrow keys before allowing it to follow a route automatically.
 
 \section{RControlStationComm Library}\label{sec:comm}
 
@@ -1130,7 +1176,7 @@ Initial version focusing on the RControlStation GUI.
 %% %\bibliographystyle{abbrvnat}
 %% %\bibliographystyle{plain}
 %% \bibliographystyle{abbrv}
-%% \bibliography{../VR2016/refs}
+%% \bibliography{../}
 %% % \bibliography{./refs}
 %% }
 
