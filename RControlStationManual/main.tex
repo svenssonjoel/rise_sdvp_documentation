@@ -757,34 +757,55 @@ You can set up a personal RTK GPS base station using a laptop and a Ublox.
 For example the Ublox equipped RTK Controller could be connected to the laptop USB port.
 
 \noindent\begin{minipage}{0.5\linewidth}
-\noindent \includegraphics[width=\textwidth]{./screens/base_station_UBLOX.png}
+\noindent\includegraphics[width=\textwidth]{./screens/base_station_new.png}
 \end{minipage}
-\begin{minipage}{0.5\linewidth}
+\noindent\begin{minipage}{0.5\linewidth}
   The position of the base station can be hard-coded in the {\em Base
-    Station Position} or derived using the antenna button on the
-  right. To compute a position the values from the NMEA tab will be
-  used and the system must run for a while to be able to compute an
-  average.
-
+    Station Position} or derived using the {\em survey in} functionality.
+  When using the survey in functionality you can also set constraints on the
+  desired accuracy.
+  
   You can choose to include the position or not in the
   data stream being sent out, check or uncheck the {\em Send} box.
 
   The two bottom checkboxes activates sending of messages via the
-  internal SDVP message transmission system. If sending over TCP
+  internal SDVP message transmission system or via a TCP server.
+\end{minipage}
+
+ If sending over TCP
   another instance of RControlStation can subscribe to the data sent
   using the previous tab, Section~\ref{sec:RTCM}, but could also be
   used by arbitrary software wanting these readings.
-\end{minipage}
 
-\noindent\begin{minipage}{0.5\linewidth}
+%% \noindent\begin{minipage}{0.5\linewidth}
+%% \noindent \includegraphics[width=\textwidth]{./screens/base_station_UBLOX.png}
+%% \end{minipage}
+%% \begin{minipage}{0.5\linewidth}
+%%   The position of the base station can be hard-coded in the {\em Base
+%%     Station Position} or derived using the antenna button on the
+%%   right. To compute a position the values from the NMEA tab will be
+%%   used and the system must run for a while to be able to compute an
+%%   average.
 
-{\bf Note:} That both of these tabs are currently a bit
-over-complicated and will be simplified and more automated. 
+%%   You can choose to include the position or not in the
+%%   data stream being sent out, check or uncheck the {\em Send} box.
 
-\end{minipage}
-\noindent\begin{minipage}{0.5\linewidth}
-\noindent \includegraphics[width=\textwidth]{./screens/base_station_NMEA.png}
-\end{minipage}
+%%   The two bottom checkboxes activates sending of messages via the
+%%   internal SDVP message transmission system. If sending over TCP
+%%   another instance of RControlStation can subscribe to the data sent
+%%   using the previous tab, Section~\ref{sec:RTCM}, but could also be
+%%   used by arbitrary software wanting these readings.
+%% \end{minipage}
+
+%% \noindent\begin{minipage}{0.5\linewidth}
+
+%% {\bf Note:} That both of these tabs are currently a bit
+%% over-complicated and will be simplified and more automated. 
+
+%% \end{minipage}
+%% \noindent\begin{minipage}{0.5\linewidth}
+%% \noindent \includegraphics[width=\textwidth]{./screens/base_station_NMEA.png}
+%% \end{minipage}
 
 \subsection{Network Interface}
 
@@ -1143,8 +1164,9 @@ The valid commands to use in the terminal are:
 \newpage 
 \section{Changelog}
 
-\begin{changeentry}{2018-X-Y}{Joel}
-Initial version focusing on the RControlStation GUI. 
+\begin{changeentry}{2018-09-13}{Joel}
+Initial version focusing on the RControlStation GUI in relation to the
+RC-car.
 \end{changeentry}
 
 
