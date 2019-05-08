@@ -32,7 +32,7 @@
 % \thispagestyle{headings}
 
 \newcommand{\GUIDEVERSION}[0]{$0.1$}
-\newcommand{\GUIDETITLE}[0]{Tutorial: Add Functionality to the Demo Platform}
+\newcommand{\GUIDETITLE}[0]{Tutorial: Add Functionality to RISE SDVP}
 
 \newcommand{\change}[0]{\noindent{\hl {\b CODE CHANGE:}}}
 
@@ -41,7 +41,7 @@
 \title{\GUIDETITLE}
 
 
-\author{The RISE Demo Platform Team}
+\author{The RISE SDVP Team}
 
 
 
@@ -60,7 +60,7 @@
 \section{Introduction}
 
 This document will take you through the procedure of adding some
-functionality to the RC car demo platform. The functionality that is
+functionality to the RISE SDVP platform. The functionality that is
 added is a motor controller simulator that will allow us to use the RC
 car controller board without a motor controller board connected. This
 can be useful for simulation and experimentation without access to the
@@ -88,7 +88,7 @@ git checkout df3dd9e32a7e78a24d1b5ce92d1b6cc78c3adba4
 \end{verbatim}
 
 This command transports you backwards in time, to before there was a
-any motor simulation functionality on the demo platform. When doing the
+any motor simulation functionality on RISE SDVP. When doing the
 work yourself, ignore all the text highlighted with ``\change{}'' and
 skip section \ref{sec:implementation} (just peek at if you want a hint).
       
@@ -696,7 +696,7 @@ In the next section we implement such a system, a motor simulation thread!
 
 \subsection{Implementation of the Motor Simulation Thread}\label{sec:simthread}
 
-The embedded software running on the demoplatform uses
+The embedded software running of RISE SDVP uses
 ChibiOS{\footnote{\url{http://www.chibios.org/dokuwiki/doku.php}}. The
   code developed in this section will make use of some ChibiOS
   functionality for thread creation and timing. The few ChibiOS
@@ -727,8 +727,7 @@ The {\verb!motor_sim.c!} file starts by including relevant headers. A
 few of these headers are ChibiOS related (\verb!ch.h! and
 \verb!hal.h!). \verb!bldc_interface.h! is familiar from earlier and
 defines the interface to the motor controller. The \verb!utils.h! file
-exposes a set of library utility functions used throughout the
-demoplatform code.
+exposes a set of library utility functions used throughout the code.
 
 \begin{Verbatim}[samepage=true,frame=single,label=Embedded/RC\_Controller/motor\_sim.c]
 #include <math.h>
